@@ -20,14 +20,18 @@ tclapp::install -quiet ultrafast
 # define paths
 ################################################################################
 
-set path_brd brd
-set path_rtl rtl
-set path_ip  ip
-set path_bd  .srcs/sources_1/bd/system/hdl
-set path_sdc sdc
+set path_build build
+file mkdir $path_build
+cd $path_build
 
-set path_out out
-set path_sdk sdk
+set path_brd ../brd
+set path_rtl ../rtl
+set path_ip  ../ip
+set path_bd  .srcs/sources_1/bd/system/hdl
+set path_sdc ../sdc
+
+set path_out ../out
+set path_sdk ../sdk
 
 file mkdir $path_out
 file mkdir $path_sdk
@@ -65,7 +69,6 @@ write_hwdef -force       -file    $path_sdk/red_pitaya.hwdef
 # 3. constraints
 ################################################################################
 
-add_files -quiet                  [glob -nocomplain ../../$path_rtl/*_pkg.sv]
 add_files -quiet                  [glob -nocomplain       $path_rtl/*_pkg.sv]
 add_files                               $path_rtl
 add_files                               $path_bd
@@ -77,7 +80,7 @@ add_files -fileset constrs_1      $path_sdc/red_pitaya_clock.xdc
 # create user generated BD
 ################################################################################
 
-source                            ./user_bd.tcl
+source                            ../user_bd.tcl
 
 ################################################################################
 # ser parameter containing Git hash

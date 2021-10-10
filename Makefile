@@ -32,7 +32,7 @@ all: $(FPGA_BIT) $(FSBL_ELF) $(DEVICE_TREE)
 
 # TODO: clean should go into each project
 clean:
-	rm -rf out .Xil .srcs sdk project
+	rm -rf out .Xil sdk project build
 	rm -rf *.jou *.log
 
 project:

@@ -69,7 +69,7 @@ source                            ./user_bd.tcl
 # start gui
 ################################################################################
 
-import_files -force
+# import_files -force
 
 set_property top red_pitaya_top [current_fileset]
 

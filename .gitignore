@@ -1,7 +1,7 @@
 .Xil/
-.srcs/
 /out
 /sdk
 /project
+/build
 *.jou
 *.log
